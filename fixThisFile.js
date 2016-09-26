@@ -29,30 +29,32 @@ var adventuringParty = {
 // MAKE CHANGES AFTER THIS
 
 // This function lists all characters in the party
+
 function listCharacters() {
     console.log("Characters:");
     for(obj in adventuringParty) {
         console.log(" * " + adventuringParty[obj].name);
     }
 }
-
+//works above here. 
 // This function should list all weapons for the character
-function listWeapons(character) {
-    console.log("Listing weapons for " + character.name + ":");
-    for(i in character.weapons) {
+var listWeapons = function(character) {
+    console.log("Listing weapons for " + character.name+ ":");
+    for(var i in character.weapons) {
         var weapon = character.weapons[i];
-        console.log(" * " . weapon[name]);
+        console.log("* " + weapon.name);
     }
 }
-
+//works above here. 
 // This function should attack with the specified weapon
 // It uses the weapon damage from the object to determine the maximum damage of this weapon
+
 function weaponAttack(character, weaponName) {
     console.log(character.name + " attacks with his " + weaponName);
     var maxDamage;
     for(i in character.weapons) {
         var weapon = character.weapons[i];
-        if(weapon.name == weaponName.toUpperCase()) {
+        if(adventuringParty.weapon.name == weaponName.toUpperCase()) {
             maxDamage = weapon.damage;
         }
     }
@@ -61,8 +63,8 @@ function weaponAttack(character, weaponName) {
 
 // Run the functions
 listCharacters(adventuringParty);
-listWeapons(wizard);
-listWeapons(warrior);
+listWeapons(adventuringParty.wizard);
+listWeapons(adventuringParty.warrior);
 weaponAttack("Warrior", "axe");
 weaponAttack("Wizard", "STAFF");
 
