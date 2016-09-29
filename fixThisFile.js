@@ -50,29 +50,28 @@ var listWeapons = function(character) {
 // It uses the weapon damage from the object to determine the maximum damage of this weapon
 
 function weaponAttack(character, weaponName) {
-    console.log(character.name + " attacks with his " + weaponName);
-    var maxDamage;
+    console.log(character + " attacks with his " + weaponName);
+ var maxDamage = ''
     for(i in character.weapons) {
         var weapon = character.weapons[i];
-        if(adventuringParty.weapon.name == weaponName.toUpperCase()) {
+        if(weapon.name == weapon.name.toUpperCase()) {
             maxDamage = weapon.damage;
         }
     }
-    console.log("He hits for " + Math.round( Math.random() * maxDamage ) + " damage");
+    console.log("He hits for " + Math.round(Math.random() * maxDamage) + " damage");
 }
 
 // Run the functions
 listCharacters(adventuringParty);
 listWeapons(adventuringParty.wizard);
 listWeapons(adventuringParty.warrior);
-weaponAttack("Warrior", "axe");
-weaponAttack("Wizard", "STAFF");
+//
+weaponAttack(adventuringParty.warrior.name, adventuringParty.warrior.weapons[0].name);
+weaponAttack(adventuringParty.wizard.name, adventuringParty.wizard.weapons[0].name.toUpperCase());
 
 
 /*
 EXAMPLE OUTPUT:
-
-
 Characters:                                                                                                                                                                                                  
  * Gandalf                                                                                                                                                                                                   
  * Conan                                                                                                                                                                                                     
